@@ -13,6 +13,12 @@
         "grouped-imports": true
       }
     ],
-    "interface-name": false
+    "interface-name": false,
+    "variable-name": [
+      true,
+      "ban-keywords",
+      "check-format",
+      "allow-leading-underscore"
+    ]
   }
 }
