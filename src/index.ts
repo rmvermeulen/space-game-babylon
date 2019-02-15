@@ -1,3 +1,11 @@
+import * as BABYLON from 'babylonjs';
+
+Object.assign(window, { BABYLON });
+
+// tslint:disable-next-line:ordered-imports
+import 'babylonjs-loaders';
+import 'reflect-metadata';
+
 import { logger } from './logger';
 import { setupEngine } from './setupEngine';
 
@@ -6,6 +14,7 @@ const debug = logger('index.ts');
 declare global {
   interface Window {
     space_game_loaded?: boolean;
+    BABYLON: typeof BABYLON;
   }
 }
 

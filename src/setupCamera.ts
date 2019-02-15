@@ -11,7 +11,7 @@ export const setupCamera = (scene: GameScene, canvas: HTMLCanvasElement) => {
     'Camera',
     Math.PI / 2,
     Math.PI / 2,
-    8,
+    500,
     new Vector3(0, 0, 0),
     scene,
   );

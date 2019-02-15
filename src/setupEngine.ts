@@ -1,8 +1,7 @@
-import { CannonJSPlugin, Engine, Vector3 } from 'babylonjs';
+import { Engine } from 'babylonjs';
 import CANNON from 'cannon';
 import Combokeys from 'combokeys';
 
-import { GameScene } from './core/GameScene';
 import { createGUI } from './createGUI';
 import { logger } from './logger';
 import { SpaceScene } from './scenes/Space.scene';
@@ -23,7 +22,7 @@ const getRenderCanvas = (): HTMLCanvasElement => {
   return canvas;
 };
 
-export const setupEngine = () => {
+export const setupEngine = async () => {
   debug('setup');
 
   const canvas = getRenderCanvas();
@@ -33,7 +32,11 @@ export const setupEngine = () => {
   });
 
   const combos = new Combokeys(canvas);
-  const scene = new SpaceScene({ engine, combos });
+  const scene = (await BABYLON.SceneLoader.AppendAsync(
+    './assets/space-ship-model/Wraith Raider Starship/',
+    'Wraith Raider Starship.obj',
+    new SpaceScene(engine, combos),
+  )) as SpaceScene;
 
   // const gravity = new Vector3(0, -9.81, 0);
   // const physicsPlugin = new CannonJSPlugin();

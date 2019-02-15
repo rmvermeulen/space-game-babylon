@@ -1,17 +1,12 @@
 import { Engine, Scene } from 'babylonjs';
+import { provide } from 'inversify-binding-decorators';
 
 import { Combos } from '../KeyTracker';
 
-export interface GameSceneOptions {
-  engine: Engine;
-  combos: Combos;
-}
-
+@provide(Scene)
 export abstract class GameScene extends Scene {
-  public combos: Combos;
-  constructor({ engine, combos }: GameSceneOptions) {
+  constructor(public engine: Engine, public combos: Combos) {
     super(engine);
-    this.combos = combos;
   }
 
   public abstract update(): void;

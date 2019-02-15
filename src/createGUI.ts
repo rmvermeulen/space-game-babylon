@@ -4,6 +4,7 @@ import { GameScene } from './core/GameScene';
 import { logger } from './logger';
 
 const debug = logger('gui');
+
 export const createGUI = (scene: GameScene) => {
   const advancedTexture = AdvancedDynamicTexture.CreateFullscreenUI(
     'UI',
@@ -20,5 +21,19 @@ export const createGUI = (scene: GameScene) => {
 
   button.onPointerUpObservable.add(() => {
     debug('button click');
+  });
+
+  const fpsLabel = new BABYLON.GUI.TextBlock();
+  fpsLabel.text = 'FPS: 0';
+  fpsLabel.color = 'white';
+  fpsLabel.fontSize = 24;
+  fpsLabel.left = -400;
+  fpsLabel.top = -300;
+  advancedTexture.addControl((fpsLabel as unknown) as Control);
+
+  scene.onBeforeRenderObservable.add(() => {
+    // rendering
+    const fps = scene.engine.getFps().toFixed();
+    fpsLabel.text = `FPS: ${fps}`;
   });
 };

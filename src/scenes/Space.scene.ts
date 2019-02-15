@@ -1,5 +1,6 @@
 import {
   CubeTexture,
+  Engine,
   HemisphericLight,
   MeshBuilder,
   Orientation,
@@ -7,15 +8,18 @@ import {
   Texture,
   Vector3,
 } from 'babylonjs';
+import { provide } from 'inversify-binding-decorators';
 
-import { GameScene, GameSceneOptions } from '../core/GameScene';
+import { GameScene } from '../core/GameScene';
+import { Combos } from '../KeyTracker';
 import { logger } from '../logger';
 
 const debug = logger('space-scene');
 
+@provide(GameScene)
 export class SpaceScene extends GameScene {
-  constructor(options: GameSceneOptions) {
-    super(options);
+  constructor(engine: Engine, combos: Combos) {
+    super(engine, combos);
 
     // tslint:disable:no-unused-expression
     new HemisphericLight('light1', new Vector3(1, 1, 0), this);
@@ -28,6 +32,7 @@ export class SpaceScene extends GameScene {
 
       const { pickedMesh } = this.pick(this.pointerX, this.pointerY)!;
       if (!pickedMesh) {
+        debug('nothing');
         return;
       }
       debug(pickedMesh.name);
@@ -36,7 +41,7 @@ export class SpaceScene extends GameScene {
     });
 
     // Skybox
-    const skyboxSize = 200;
+    const skyboxSize = 2e3;
     const skybox = MeshBuilder.CreateBox(
       'skyBox',
       { size: skyboxSize, sideOrientation: Orientation.CCW },
