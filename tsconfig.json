@@ -3,10 +3,16 @@
   "exclude": ["node_modules/*", "src/**/*.spec.ts"],
   "compilerOptions": {
     "target": "es5",
-    "module": "esnext",
-    "lib": ["esnext", "dom"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": ["es6", "dom"],
+    "types": [
+      "reflect-metadata",
+      "babylonjs",
+      "babylonjs-gui",
+      "babylonjs-loaders"
+    ],
     "strict": true,
-    "types": ["babylonjs", "babylonjs-gui"],
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "noUnusedLocals": true,

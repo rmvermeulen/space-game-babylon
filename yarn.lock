@@ -718,6 +718,11 @@
   dependencies:
     any-observable "^0.3.0"
 
+"@types/assert@^1.4.2":
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/@types/assert/-/assert-1.4.2.tgz#e9116f5abf9cbd0c86ed22e38185b71e7f44071c"
+  integrity sha512-N5I8kX4ybqvqi4A+Y8b3coatbuRKWaa+sEPm3aCFdm9oCxsDvwY/ELNV4c/56W5MdRKJ6b8AOWRFyxhi437t7A==
+
 "@types/cannon@^0.1.3":
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/@types/cannon/-/cannon-0.1.3.tgz#cfebd11336e66334087008234d2883348be9b329"
@@ -737,20 +742,6 @@
   version "0.0.31"
   resolved "https://registry.yarnpkg.com/@types/debug/-/debug-0.0.31.tgz#bac8d8aab6a823e91deb7f79083b2a35fa638f33"
   integrity sha512-LS1MCPaQKqspg7FvexuhmDbWUhE2yIJ+4AgVIyObfc06/UKZ8REgxGNjZc82wPLWmbeOm7S+gSsLgo75TanG4A==
-
-"@types/inversify-binding-decorators@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@types/inversify-binding-decorators/-/inversify-binding-decorators-2.0.0.tgz#6c248f0e5e87f4dafee9d79cc4ae7f757e3eea86"
-  integrity sha1-bCSPDl6H9Nr+6decxK5/dX4+6oY=
-  dependencies:
-    inversify-binding-decorators "*"
-
-"@types/inversify@^2.0.33":
-  version "2.0.33"
-  resolved "https://registry.yarnpkg.com/@types/inversify/-/inversify-2.0.33.tgz#0770dae2299aaee57803f75235e64a99b74f6de0"
-  integrity sha1-B3Da4imaruV4A/dSNeZKmbdPbeA=
-  dependencies:
-    inversify "*"
 
 "@types/jest@>=22.0.0 <24.0.0":
   version "23.3.13"
@@ -978,7 +969,7 @@ assert-plus@1.0.0, assert-plus@^1.0.0:
   resolved "https://registry.yarnpkg.com/assert-plus/-/assert-plus-1.0.0.tgz#f12e0f3c5d77b0b1cdd9146942e4e96c1e4dd525"
   integrity sha1-8S4PPF13sLHN2RRpQuTpbB5N1SU=
 
-assert@^1.1.1:
+assert@^1.1.1, assert@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/assert/-/assert-1.4.1.tgz#99912d591836b5a6f5b345c0f07eefc08fc65d91"
   integrity sha1-mZEtWRg2tab1s0XA8H7vwI/GXZE=
@@ -1224,6 +1215,16 @@ babylon@^6.18.0:
   resolved "https://registry.yarnpkg.com/babylon/-/babylon-6.18.0.tgz#af2f3b88fa6f5c1e4c634d1a0f8eac4f55b395e3"
   integrity sha512-q/UEjfGJ2Cm3oKV71DJz9d25TPnq5rhBVL2Q4fA5wcC3jcrdn7+SssEybFIxwAvvP+YCsCYNKughoF33GxgycQ==
 
+babylon@^7.0.0-beta.47:
+  version "7.0.0-beta.47"
+  resolved "https://registry.yarnpkg.com/babylon/-/babylon-7.0.0-beta.47.tgz#6d1fa44f0abec41ab7c780481e62fd9aafbdea80"
+  integrity sha512-+rq2cr4GDhtToEzKFD6KZZMDBXhjFAr9JjPw9pAppZACeEWqNM294j+NdBzkSHYXwzzBmVjZ3nEVJlOhbR2gOQ==
+
+babylonjs-gltf2interface@4.0.0-alpha.27:
+  version "4.0.0-alpha.27"
+  resolved "https://registry.yarnpkg.com/babylonjs-gltf2interface/-/babylonjs-gltf2interface-4.0.0-alpha.27.tgz#ebab3b2e393665e7218b83c188b849c0cb7b5827"
+  integrity sha512-jE5e1wJ5AO37JqIttH3ZsY+3faVYpRJt4G/AjtINaPNmbHDxEUklsh++3uLuuS2GFs3ThFE1myhI4vNCODsp5A==
+
 babylonjs-gui@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/babylonjs-gui/-/babylonjs-gui-3.3.0.tgz#373328616cbe467cc9b0b99a3b3cd1318f90c921"
@@ -1231,15 +1232,23 @@ babylonjs-gui@^3.3.0:
   dependencies:
     babylonjs "3.3.0"
 
-babylonjs@3.3.0:
+babylonjs-loaders@^4.0.0-alpha.27:
+  version "4.0.0-alpha.27"
+  resolved "https://registry.yarnpkg.com/babylonjs-loaders/-/babylonjs-loaders-4.0.0-alpha.27.tgz#0b7970626ddb8c02b0b84e8e79ede782947f3d59"
+  integrity sha512-agLbESQD+4veMz0yBtjSBLEZ8ESu53T5Fh967X93yw9jA5aWqw/ekSo87tYcdLMTesQlPYwC4V4YWfmbmVdU5A==
+  dependencies:
+    babylonjs "4.0.0-alpha.27"
+    babylonjs-gltf2interface "4.0.0-alpha.27"
+
+babylonjs@3.3.0, babylonjs@>=3.3.0-rc.4:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/babylonjs/-/babylonjs-3.3.0.tgz#f7636c3761cc3260dac8adf26767bc6323e74181"
   integrity sha512-3Gn9kAEPejJN4+HMKGAKbhsCsrysvaORqi07Bdr9Xmy3KRt/BxyGwepzfcqFIe8+94SWszPDeJC9peICfHdCKw==
 
-babylonjs@^4.0.0-alpha.22:
-  version "4.0.0-alpha.22"
-  resolved "https://registry.yarnpkg.com/babylonjs/-/babylonjs-4.0.0-alpha.22.tgz#c8edd8bb712c2da84923310a049bcf7b94f54608"
-  integrity sha512-7ntdVuK6WkPnd91wfjEb9tvsymSXpLpFtnkDl+GD6GRz3K0cHn3X4z3/o+jy4N2iSkvhlNKouvJguBJpM2/xKg==
+babylonjs@4.0.0-alpha.27:
+  version "4.0.0-alpha.27"
+  resolved "https://registry.yarnpkg.com/babylonjs/-/babylonjs-4.0.0-alpha.27.tgz#1a9ca6c3e0f89aa4e1c9dff315e7a1508ba11b2f"
+  integrity sha512-VhZEItcl3hSs3Oge2k9WHKXdAU+IdLYYLFSHfQdIWetoHNWIfuKm5yNbWcvRb2t4nK6g2XviH6gzjJNzm6svTA==
 
 balanced-match@^0.4.2:
   version "0.4.2"
@@ -3481,12 +3490,12 @@ invariant@^2.2.2, invariant@^2.2.4:
   dependencies:
     loose-envify "^1.0.0"
 
-inversify-binding-decorators@*, inversify-binding-decorators@^4.0.0:
+inversify-binding-decorators@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/inversify-binding-decorators/-/inversify-binding-decorators-4.0.0.tgz#c4d1ac50d7d6531f465ee7894e92031f7471c865"
   integrity sha512-r8au/oH3vS7ttHj0RivAznwElySeRohLfg8lvOSzbrX6abf/8ik8ptk49XbzdShgrnalvl7CM6MjcskfM7MMqQ==
 
-inversify@*, inversify@^5.0.1:
+inversify@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/inversify/-/inversify-5.0.1.tgz#500d709b1434896ce5a0d58915c4a4210e34fb6e"
   integrity sha512-Ieh06s48WnEYGcqHepdsJUIJUXpwH5o5vodAX+DK2JA/gjy4EbEcQZxw+uFfzysmKjiLXGYwNG3qDZsKVMcINQ==
@@ -6452,6 +6461,11 @@ reduce-function-call@^1.0.1:
   integrity sha1-WiAL+S4ON3UXUv5FsKszD9S2vpk=
   dependencies:
     balanced-match "^0.4.2"
+
+reflect-metadata@^0.1.13:
+  version "0.1.13"
+  resolved "https://registry.yarnpkg.com/reflect-metadata/-/reflect-metadata-0.1.13.tgz#67ae3ca57c972a2aa1642b10fe363fe32d49dc08"
+  integrity sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg==
 
 regenerate-unicode-properties@^7.0.0:
   version "7.0.0"
