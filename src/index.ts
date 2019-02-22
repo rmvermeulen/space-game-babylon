@@ -1,9 +1,5 @@
 import * as BABYLON from 'babylonjs';
-
-Object.assign(window, { BABYLON });
-
-// tslint:disable-next-line:ordered-imports
-import 'babylonjs-loaders';
+import { OBJFileLoader } from 'babylonjs-loaders';
 import 'reflect-metadata';
 
 import { logger } from './logger';
@@ -27,3 +23,5 @@ window.onload = async () => {
   debug('window ready, starting game');
   setupEngine();
 };
+
+BABYLON.SceneLoader.RegisterPlugin(new OBJFileLoader());

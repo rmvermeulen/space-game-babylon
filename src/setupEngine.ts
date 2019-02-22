@@ -1,7 +1,9 @@
 import { Engine } from 'babylonjs';
+import { delay } from 'bluebird';
 import CANNON from 'cannon';
 import Combokeys from 'combokeys';
 
+import { SpaceShip } from './actors/SpaceShip';
 import { createGUI } from './createGUI';
 import { logger } from './logger';
 import { SpaceScene } from './scenes/Space.scene';
@@ -32,21 +34,22 @@ export const setupEngine = async () => {
   });
 
   const combos = new Combokeys(canvas);
-  const scene = (await BABYLON.SceneLoader.AppendAsync(
-    './assets/space-ship-model/Wraith Raider Starship/',
-    'Wraith Raider Starship.obj',
-    new SpaceScene(engine, combos),
-  )) as SpaceScene;
+  const scene = new SpaceScene(engine, combos);
+
+  const player = SpaceShip.create(scene);
+
+  while (!player.isReady) {
+    await delay(50);
+  }
 
   // const gravity = new Vector3(0, -9.81, 0);
   // const physicsPlugin = new CannonJSPlugin();
   // scene.enablePhysics(gravity, physicsPlugin);
 
   createGUI(scene);
-  setupCamera(scene, canvas);
+  setupCamera(scene, canvas, player.mesh);
 
   engine.runRenderLoop(() => {
-    scene.update();
     scene.render();
   });
 
@@ -55,6 +58,4 @@ export const setupEngine = async () => {
     debug('resizing');
     engine.resize();
   });
-
-  return { canvas, keys: combos };
 };

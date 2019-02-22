@@ -16,7 +16,7 @@ import { logger } from '../logger';
 
 const debug = logger('space-scene');
 
-@provide(GameScene)
+// @provide(SpaceScene)
 export class SpaceScene extends GameScene {
   constructor(engine: Engine, combos: Combos) {
     super(engine, combos);
@@ -41,7 +41,7 @@ export class SpaceScene extends GameScene {
     });
 
     // Skybox
-    const skyboxSize = 2e3;
+    const skyboxSize = 10e3;
     const skybox = MeshBuilder.CreateBox(
       'skyBox',
       { size: skyboxSize, sideOrientation: Orientation.CCW },
